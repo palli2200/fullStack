@@ -33,7 +33,7 @@ function router(menu){
         res.render('category',{title:'Category Page',category,menu})
     })
     categoryRouter.route('/details').get((req,res)=>{
-        res.send("Categeroy Deatasils")
+        res.send("Categeroy Deatasils123")
         
     })
 
