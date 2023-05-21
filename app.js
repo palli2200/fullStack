@@ -7,8 +7,16 @@ let fs = require('fs')
 let port = process.env.port || 6700;
 // let port =6700;
 
-let categoryRouter = require('./src/controller/categoryRouter');
-let productRouter = require('./src/controller/productRouter');
+// let categoryRouter = require('./src/controller/categoryRouter');
+// let productRouter = require('./src/controller/productRouter');
+
+let menu = [
+    {name:'Category', link:'/category'},
+    {name:'Products', link:'/p'}
+]
+
+let categoryRouter = require('./src/controller/categoryRouter')(menu);
+let productRouter = require('./src/controller/productRouter')(menu);
 
 // middleWear
 // app.use(morgan('dev'))
@@ -27,11 +35,11 @@ app.set('view engine','ejs')
 // default route
 app.get('/',(req,res)=>{
     // res.send('hi from express');
-    res.render('index')
+    res.render('index',{title:'Home Page',menu})
 })
 
 app.use('/category', categoryRouter)
-app.use('/products', productRouter)
+app.use('/p', productRouter)
 
 
 app.listen(port,(err)=>{
