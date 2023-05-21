@@ -52,7 +52,7 @@ productRouter.route('/').get((req,res)=>{
     res.send(products)
 })
 productRouter.route('/details').get((req,res)=>{
-    res.send("products Details")
+    res.send("this all are product details products Details")
 })
 
 
